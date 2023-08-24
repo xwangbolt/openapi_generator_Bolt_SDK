@@ -1,4 +1,4 @@
-module github.com/GIT_USER_ID/GIT_REPO_ID
+module github.com/xwangbolt/openapi_generator_Bolt_SDK
 
 go 1.18
 
