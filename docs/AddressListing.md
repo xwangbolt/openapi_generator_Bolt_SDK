@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
+**Id** | **string** |  | [readonly] 
 **FirstName** | **string** |  | 
 **LastName** | **string** |  | 
 **Company** | Pointer to **string** |  | [optional] 
@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 ### NewAddressListing
 
-`func NewAddressListing(firstName string, lastName string, streetAddress1 string, locality string, postalCode string, countryCode string, ) *AddressListing`
+`func NewAddressListing(id string, firstName string, lastName string, streetAddress1 string, locality string, postalCode string, countryCode string, ) *AddressListing`
 
 NewAddressListing instantiates a new AddressListing object
 This constructor will assign default values to properties that have it defined,
@@ -56,11 +56,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *AddressListing) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetFirstName
 

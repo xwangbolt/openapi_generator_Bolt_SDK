@@ -20,12 +20,12 @@ import (
 )
 
 
-// TestingApiService TestingApi service
-type TestingApiService service
+// TestingAPIService TestingAPI service
+type TestingAPIService service
 
 type ApiTestingAccountCreateRequest struct {
 	ctx context.Context
-	ApiService *TestingApiService
+	ApiService *TestingAPIService
 	accountTestCreationData *AccountTestCreationData
 }
 
@@ -47,7 +47,7 @@ Create a Bolt shopper account for testing purposes.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiTestingAccountCreateRequest
 */
-func (a *TestingApiService) TestingAccountCreate(ctx context.Context) ApiTestingAccountCreateRequest {
+func (a *TestingAPIService) TestingAccountCreate(ctx context.Context) ApiTestingAccountCreateRequest {
 	return ApiTestingAccountCreateRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -56,7 +56,7 @@ func (a *TestingApiService) TestingAccountCreate(ctx context.Context) ApiTesting
 
 // Execute executes the request
 //  @return AccountTestCreationData
-func (a *TestingApiService) TestingAccountCreateExecute(r ApiTestingAccountCreateRequest) (*AccountTestCreationData, *http.Response, error) {
+func (a *TestingAPIService) TestingAccountCreateExecute(r ApiTestingAccountCreateRequest) (*AccountTestCreationData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -64,7 +64,7 @@ func (a *TestingApiService) TestingAccountCreateExecute(r ApiTestingAccountCreat
 		localVarReturnValue  *AccountTestCreationData
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestingApiService.TestingAccountCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestingAPIService.TestingAccountCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -150,7 +150,7 @@ func (a *TestingApiService) TestingAccountCreateExecute(r ApiTestingAccountCreat
 
 type ApiTestingCreditCardGetRequest struct {
 	ctx context.Context
-	ApiService *TestingApiService
+	ApiService *TestingAPIService
 }
 
 func (r ApiTestingCreditCardGetRequest) Execute() (*CreditCard, *http.Response, error) {
@@ -167,7 +167,7 @@ generated against the `4111 1111 1111 1004` test card.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiTestingCreditCardGetRequest
 */
-func (a *TestingApiService) TestingCreditCardGet(ctx context.Context) ApiTestingCreditCardGetRequest {
+func (a *TestingAPIService) TestingCreditCardGet(ctx context.Context) ApiTestingCreditCardGetRequest {
 	return ApiTestingCreditCardGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -176,7 +176,7 @@ func (a *TestingApiService) TestingCreditCardGet(ctx context.Context) ApiTesting
 
 // Execute executes the request
 //  @return CreditCard
-func (a *TestingApiService) TestingCreditCardGetExecute(r ApiTestingCreditCardGetRequest) (*CreditCard, *http.Response, error) {
+func (a *TestingAPIService) TestingCreditCardGetExecute(r ApiTestingCreditCardGetRequest) (*CreditCard, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -184,7 +184,7 @@ func (a *TestingApiService) TestingCreditCardGetExecute(r ApiTestingCreditCardGe
 		localVarReturnValue  *CreditCard
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestingApiService.TestingCreditCardGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestingAPIService.TestingCreditCardGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -265,7 +265,7 @@ func (a *TestingApiService) TestingCreditCardGetExecute(r ApiTestingCreditCardGe
 
 type ApiTestingShipmentTrackingCreateRequest struct {
 	ctx context.Context
-	ApiService *TestingApiService
+	ApiService *TestingAPIService
 	shipmentTrackingUpdate *ShipmentTrackingUpdate
 }
 
@@ -289,7 +289,7 @@ information to shipments associated with orders.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiTestingShipmentTrackingCreateRequest
 */
-func (a *TestingApiService) TestingShipmentTrackingCreate(ctx context.Context) ApiTestingShipmentTrackingCreateRequest {
+func (a *TestingAPIService) TestingShipmentTrackingCreate(ctx context.Context) ApiTestingShipmentTrackingCreateRequest {
 	return ApiTestingShipmentTrackingCreateRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -297,14 +297,14 @@ func (a *TestingApiService) TestingShipmentTrackingCreate(ctx context.Context) A
 }
 
 // Execute executes the request
-func (a *TestingApiService) TestingShipmentTrackingCreateExecute(r ApiTestingShipmentTrackingCreateRequest) (*http.Response, error) {
+func (a *TestingAPIService) TestingShipmentTrackingCreateExecute(r ApiTestingShipmentTrackingCreateRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestingApiService.TestingShipmentTrackingCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestingAPIService.TestingShipmentTrackingCreate")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}

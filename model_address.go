@@ -20,7 +20,7 @@ var _ MappedNullable = &Address{}
 
 // Address struct for Address
 type Address struct {
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 	FirstName string `json:"first_name"`
 	LastName string `json:"last_name"`
 	Company *string `json:"company,omitempty"`
@@ -38,8 +38,9 @@ type Address struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAddress(firstName string, lastName string, streetAddress1 string, locality string, postalCode string, countryCode string) *Address {
+func NewAddress(id string, firstName string, lastName string, streetAddress1 string, locality string, postalCode string, countryCode string) *Address {
 	this := Address{}
+	this.Id = id
 	this.FirstName = firstName
 	this.LastName = lastName
 	this.StreetAddress1 = streetAddress1
@@ -57,36 +58,28 @@ func NewAddressWithDefaults() *Address {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *Address) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *Address) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *Address) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *Address) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
 // GetFirstName returns the FirstName field value
@@ -403,9 +396,7 @@ func (o Address) MarshalJSON() ([]byte, error) {
 
 func (o Address) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
+	toSerialize["id"] = o.Id
 	toSerialize["first_name"] = o.FirstName
 	toSerialize["last_name"] = o.LastName
 	if !IsNil(o.Company) {

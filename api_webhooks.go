@@ -21,12 +21,12 @@ import (
 )
 
 
-// WebhooksApiService WebhooksApi service
-type WebhooksApiService service
+// WebhooksAPIService WebhooksAPI service
+type WebhooksAPIService service
 
 type ApiWebhooksCreateRequest struct {
 	ctx context.Context
-	ApiService *WebhooksApiService
+	ApiService *WebhooksAPIService
 	webhook *Webhook
 }
 
@@ -47,7 +47,7 @@ Create a new webhook to receive notifications from Bolt about various events, su
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiWebhooksCreateRequest
 */
-func (a *WebhooksApiService) WebhooksCreate(ctx context.Context) ApiWebhooksCreateRequest {
+func (a *WebhooksAPIService) WebhooksCreate(ctx context.Context) ApiWebhooksCreateRequest {
 	return ApiWebhooksCreateRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -56,7 +56,7 @@ func (a *WebhooksApiService) WebhooksCreate(ctx context.Context) ApiWebhooksCrea
 
 // Execute executes the request
 //  @return Webhook
-func (a *WebhooksApiService) WebhooksCreateExecute(r ApiWebhooksCreateRequest) (*Webhook, *http.Response, error) {
+func (a *WebhooksAPIService) WebhooksCreateExecute(r ApiWebhooksCreateRequest) (*Webhook, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -64,7 +64,7 @@ func (a *WebhooksApiService) WebhooksCreateExecute(r ApiWebhooksCreateRequest) (
 		localVarReturnValue  *Webhook
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebhooksApiService.WebhooksCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebhooksAPIService.WebhooksCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -150,7 +150,7 @@ func (a *WebhooksApiService) WebhooksCreateExecute(r ApiWebhooksCreateRequest) (
 
 type ApiWebhooksDeleteRequest struct {
 	ctx context.Context
-	ApiService *WebhooksApiService
+	ApiService *WebhooksAPIService
 	id string
 }
 
@@ -167,7 +167,7 @@ Delete an existing webhook. You will no longer receive notifications from Bolt a
  @param id The ID of the webhook to delete
  @return ApiWebhooksDeleteRequest
 */
-func (a *WebhooksApiService) WebhooksDelete(ctx context.Context, id string) ApiWebhooksDeleteRequest {
+func (a *WebhooksAPIService) WebhooksDelete(ctx context.Context, id string) ApiWebhooksDeleteRequest {
 	return ApiWebhooksDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -176,14 +176,14 @@ func (a *WebhooksApiService) WebhooksDelete(ctx context.Context, id string) ApiW
 }
 
 // Execute executes the request
-func (a *WebhooksApiService) WebhooksDeleteExecute(r ApiWebhooksDeleteRequest) (*http.Response, error) {
+func (a *WebhooksAPIService) WebhooksDeleteExecute(r ApiWebhooksDeleteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebhooksApiService.WebhooksDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebhooksAPIService.WebhooksDelete")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -266,7 +266,7 @@ func (a *WebhooksApiService) WebhooksDeleteExecute(r ApiWebhooksDeleteRequest) (
 
 type ApiWebhooksGetRequest struct {
 	ctx context.Context
-	ApiService *WebhooksApiService
+	ApiService *WebhooksAPIService
 	id string
 }
 
@@ -283,7 +283,7 @@ Retrieve information for an existing webhook.
  @param id The ID of the webhook whose information to retrieve
  @return ApiWebhooksGetRequest
 */
-func (a *WebhooksApiService) WebhooksGet(ctx context.Context, id string) ApiWebhooksGetRequest {
+func (a *WebhooksAPIService) WebhooksGet(ctx context.Context, id string) ApiWebhooksGetRequest {
 	return ApiWebhooksGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -293,7 +293,7 @@ func (a *WebhooksApiService) WebhooksGet(ctx context.Context, id string) ApiWebh
 
 // Execute executes the request
 //  @return Webhook
-func (a *WebhooksApiService) WebhooksGetExecute(r ApiWebhooksGetRequest) (*Webhook, *http.Response, error) {
+func (a *WebhooksAPIService) WebhooksGetExecute(r ApiWebhooksGetRequest) (*Webhook, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -301,7 +301,7 @@ func (a *WebhooksApiService) WebhooksGetExecute(r ApiWebhooksGetRequest) (*Webho
 		localVarReturnValue  *Webhook
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebhooksApiService.WebhooksGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebhooksAPIService.WebhooksGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -393,7 +393,7 @@ func (a *WebhooksApiService) WebhooksGetExecute(r ApiWebhooksGetRequest) (*Webho
 
 type ApiWebhooksGetAllRequest struct {
 	ctx context.Context
-	ApiService *WebhooksApiService
+	ApiService *WebhooksAPIService
 	xPublishableKey *string
 }
 
@@ -415,7 +415,7 @@ Retrieve information about all existing webhooks.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiWebhooksGetAllRequest
 */
-func (a *WebhooksApiService) WebhooksGetAll(ctx context.Context) ApiWebhooksGetAllRequest {
+func (a *WebhooksAPIService) WebhooksGetAll(ctx context.Context) ApiWebhooksGetAllRequest {
 	return ApiWebhooksGetAllRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -424,7 +424,7 @@ func (a *WebhooksApiService) WebhooksGetAll(ctx context.Context) ApiWebhooksGetA
 
 // Execute executes the request
 //  @return WebhooksGetAll200Response
-func (a *WebhooksApiService) WebhooksGetAllExecute(r ApiWebhooksGetAllRequest) (*WebhooksGetAll200Response, *http.Response, error) {
+func (a *WebhooksAPIService) WebhooksGetAllExecute(r ApiWebhooksGetAllRequest) (*WebhooksGetAll200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -432,7 +432,7 @@ func (a *WebhooksApiService) WebhooksGetAllExecute(r ApiWebhooksGetAllRequest) (
 		localVarReturnValue  *WebhooksGetAll200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebhooksApiService.WebhooksGetAll")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebhooksAPIService.WebhooksGetAll")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

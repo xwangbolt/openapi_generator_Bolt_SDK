@@ -298,9 +298,9 @@ func (o AccountTestCreationData) MarshalJSON() ([]byte, error) {
 
 func (o AccountTestCreationData) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: email is readOnly
+	toSerialize["email"] = o.Email
 	toSerialize["email_state"] = o.EmailState
-	// skip: phone is readOnly
+	toSerialize["phone"] = o.Phone
 	toSerialize["phone_state"] = o.PhoneState
 	if !IsNil(o.IsMigrated) {
 		toSerialize["is_migrated"] = o.IsMigrated
@@ -308,8 +308,8 @@ func (o AccountTestCreationData) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.HasAddress) {
 		toSerialize["has_address"] = o.HasAddress
 	}
-	// skip: otp_code is readOnly
-	// skip: oauth_code is readOnly
+	toSerialize["otp_code"] = o.OtpCode
+	toSerialize["oauth_code"] = o.OauthCode
 	toSerialize["deactivate_at"] = o.DeactivateAt
 	return toSerialize, nil
 }

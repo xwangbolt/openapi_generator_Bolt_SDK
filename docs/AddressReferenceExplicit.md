@@ -4,8 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Tag** | **string** | The type of address reference | 
-**Id** | Pointer to **string** |  | [optional] 
+**Id** | **string** |  | [readonly] 
 **FirstName** | **string** |  | 
 **LastName** | **string** |  | 
 **Company** | Pointer to **string** |  | [optional] 
@@ -17,12 +16,13 @@ Name | Type | Description | Notes
 **CountryCode** | **string** |  | 
 **Email** | Pointer to **string** |  | [optional] 
 **Phone** | Pointer to **string** |  | [optional] 
+**Tag** | **string** | The type of address reference | 
 
 ## Methods
 
 ### NewAddressReferenceExplicit
 
-`func NewAddressReferenceExplicit(tag string, firstName string, lastName string, streetAddress1 string, locality string, postalCode string, countryCode string, ) *AddressReferenceExplicit`
+`func NewAddressReferenceExplicit(id string, firstName string, lastName string, streetAddress1 string, locality string, postalCode string, countryCode string, tag string, ) *AddressReferenceExplicit`
 
 NewAddressReferenceExplicit instantiates a new AddressReferenceExplicit object
 This constructor will assign default values to properties that have it defined,
@@ -36,26 +36,6 @@ will change when the set of required properties is changed
 NewAddressReferenceExplicitWithDefaults instantiates a new AddressReferenceExplicit object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetTag
-
-`func (o *AddressReferenceExplicit) GetTag() string`
-
-GetTag returns the Tag field if non-nil, zero value otherwise.
-
-### GetTagOk
-
-`func (o *AddressReferenceExplicit) GetTagOk() (*string, bool)`
-
-GetTagOk returns a tuple with the Tag field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTag
-
-`func (o *AddressReferenceExplicit) SetTag(v string)`
-
-SetTag sets Tag field to given value.
-
 
 ### GetId
 
@@ -76,11 +56,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *AddressReferenceExplicit) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetFirstName
 
@@ -326,6 +301,26 @@ SetPhone sets Phone field to given value.
 `func (o *AddressReferenceExplicit) HasPhone() bool`
 
 HasPhone returns a boolean if a field has been set.
+
+### GetTag
+
+`func (o *AddressReferenceExplicit) GetTag() string`
+
+GetTag returns the Tag field if non-nil, zero value otherwise.
+
+### GetTagOk
+
+`func (o *AddressReferenceExplicit) GetTagOk() (*string, bool)`
+
+GetTagOk returns a tuple with the Tag field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTag
+
+`func (o *AddressReferenceExplicit) SetTag(v string)`
+
+SetTag sets Tag field to given value.
+
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

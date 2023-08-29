@@ -51,15 +51,15 @@ type APIClient struct {
 
 	// API Services
 
-	AccountApi *AccountApiService
+	AccountAPI *AccountAPIService
 
-	ConfigurationApi *ConfigurationApiService
+	ConfigurationAPI *ConfigurationAPIService
 
-	PaymentsApi *PaymentsApiService
+	PaymentsAPI *PaymentsAPIService
 
-	TestingApi *TestingApiService
+	TestingAPI *TestingAPIService
 
-	WebhooksApi *WebhooksApiService
+	WebhooksAPI *WebhooksAPIService
 }
 
 type service struct {
@@ -78,11 +78,11 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.common.client = c
 
 	// API Services
-	c.AccountApi = (*AccountApiService)(&c.common)
-	c.ConfigurationApi = (*ConfigurationApiService)(&c.common)
-	c.PaymentsApi = (*PaymentsApiService)(&c.common)
-	c.TestingApi = (*TestingApiService)(&c.common)
-	c.WebhooksApi = (*WebhooksApiService)(&c.common)
+	c.AccountAPI = (*AccountAPIService)(&c.common)
+	c.ConfigurationAPI = (*ConfigurationAPIService)(&c.common)
+	c.PaymentsAPI = (*PaymentsAPIService)(&c.common)
+	c.TestingAPI = (*TestingAPIService)(&c.common)
+	c.WebhooksAPI = (*WebhooksAPIService)(&c.common)
 
 	return c
 }
@@ -461,6 +461,7 @@ func (c *APIClient) decode(v interface{}, b []byte, contentType string) (err err
 			return
 		}
 		_, err = f.Seek(0, io.SeekStart)
+		err = os.Remove(f.Name())
 		return
 	}
 	if f, ok := v.(**os.File); ok {
@@ -473,6 +474,7 @@ func (c *APIClient) decode(v interface{}, b []byte, contentType string) (err err
 			return
 		}
 		_, err = (*f).Seek(0, io.SeekStart)
+		err = os.Remove((*f).Name())
 		return
 	}
 	if xmlCheck.MatchString(contentType) {
@@ -549,7 +551,11 @@ func setBody(body interface{}, contentType string) (bodyBuf *bytes.Buffer, err e
 	} else if jsonCheck.MatchString(contentType) {
 		err = json.NewEncoder(bodyBuf).Encode(body)
 	} else if xmlCheck.MatchString(contentType) {
-		err = xml.NewEncoder(bodyBuf).Encode(body)
+		var bs []byte
+		bs, err = xml.Marshal(body)
+		if err == nil {
+			bodyBuf.Write(bs)
+		}
 	}
 
 	if err != nil {

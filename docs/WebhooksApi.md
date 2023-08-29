@@ -1,13 +1,13 @@
-# \WebhooksApi
+# \WebhooksAPI
 
 All URIs are relative to *https://api.xwang.dev.bolt.me/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**WebhooksCreate**](WebhooksApi.md#WebhooksCreate) | **Put** /webhooks | Create a webhook to subscribe to certain events
-[**WebhooksDelete**](WebhooksApi.md#WebhooksDelete) | **Delete** /webhooks/{id} | Delete an existing webhook
-[**WebhooksGet**](WebhooksApi.md#WebhooksGet) | **Get** /webhooks/{id} | Retrieve information for a specific webhook
-[**WebhooksGetAll**](WebhooksApi.md#WebhooksGetAll) | **Get** /webhooks | Retrieve information about all existing webhooks
+[**WebhooksCreate**](WebhooksAPI.md#WebhooksCreate) | **Put** /webhooks | Create a webhook to subscribe to certain events
+[**WebhooksDelete**](WebhooksAPI.md#WebhooksDelete) | **Delete** /webhooks/{id} | Delete an existing webhook
+[**WebhooksGet**](WebhooksAPI.md#WebhooksGet) | **Get** /webhooks/{id} | Retrieve information for a specific webhook
+[**WebhooksGetAll**](WebhooksAPI.md#WebhooksGetAll) | **Get** /webhooks | Retrieve information about all existing webhooks
 
 
 
@@ -36,13 +36,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WebhooksApi.WebhooksCreate(context.Background()).Webhook(webhook).Execute()
+    resp, r, err := apiClient.WebhooksAPI.WebhooksCreate(context.Background()).Webhook(webhook).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `WebhooksApi.WebhooksCreate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.WebhooksCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `WebhooksCreate`: Webhook
-    fmt.Fprintf(os.Stdout, "Response from `WebhooksApi.WebhooksCreate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `WebhooksAPI.WebhooksCreate`: %v\n", resp)
 }
 ```
 
@@ -102,9 +102,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.WebhooksApi.WebhooksDelete(context.Background(), id).Execute()
+    r, err := apiClient.WebhooksAPI.WebhooksDelete(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `WebhooksApi.WebhooksDelete``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.WebhooksDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -170,13 +170,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WebhooksApi.WebhooksGet(context.Background(), id).Execute()
+    resp, r, err := apiClient.WebhooksAPI.WebhooksGet(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `WebhooksApi.WebhooksGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.WebhooksGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `WebhooksGet`: Webhook
-    fmt.Fprintf(os.Stdout, "Response from `WebhooksApi.WebhooksGet`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `WebhooksAPI.WebhooksGet`: %v\n", resp)
 }
 ```
 
@@ -240,13 +240,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WebhooksApi.WebhooksGetAll(context.Background()).XPublishableKey(xPublishableKey).Execute()
+    resp, r, err := apiClient.WebhooksAPI.WebhooksGetAll(context.Background()).XPublishableKey(xPublishableKey).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `WebhooksApi.WebhooksGetAll``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.WebhooksGetAll``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `WebhooksGetAll`: WebhooksGetAll200Response
-    fmt.Fprintf(os.Stdout, "Response from `WebhooksApi.WebhooksGetAll`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `WebhooksAPI.WebhooksGetAll`: %v\n", resp)
 }
 ```
 

@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IdentifierType** | **string** | The type of identifier | 
-**IdentifierValue** | **string** | The value of the identifier. The value must be valid for the specified &#x60;identifier_type&#x60; | 
+**Type** | **string** | The type of identifier | 
+**Value** | **string** | The value of the identifier. The value must be valid for the specified &#x60;identifier_type&#x60; | 
 
 ## Methods
 
 ### NewAccountExistsIdentifierParameter
 
-`func NewAccountExistsIdentifierParameter(identifierType string, identifierValue string, ) *AccountExistsIdentifierParameter`
+`func NewAccountExistsIdentifierParameter(type_ string, value string, ) *AccountExistsIdentifierParameter`
 
 NewAccountExistsIdentifierParameter instantiates a new AccountExistsIdentifierParameter object
 This constructor will assign default values to properties that have it defined,
@@ -26,44 +26,44 @@ NewAccountExistsIdentifierParameterWithDefaults instantiates a new AccountExists
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetIdentifierType
+### GetType
 
-`func (o *AccountExistsIdentifierParameter) GetIdentifierType() string`
+`func (o *AccountExistsIdentifierParameter) GetType() string`
 
-GetIdentifierType returns the IdentifierType field if non-nil, zero value otherwise.
+GetType returns the Type field if non-nil, zero value otherwise.
 
-### GetIdentifierTypeOk
+### GetTypeOk
 
-`func (o *AccountExistsIdentifierParameter) GetIdentifierTypeOk() (*string, bool)`
+`func (o *AccountExistsIdentifierParameter) GetTypeOk() (*string, bool)`
 
-GetIdentifierTypeOk returns a tuple with the IdentifierType field if it's non-nil, zero value otherwise
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetIdentifierType
+### SetType
 
-`func (o *AccountExistsIdentifierParameter) SetIdentifierType(v string)`
+`func (o *AccountExistsIdentifierParameter) SetType(v string)`
 
-SetIdentifierType sets IdentifierType field to given value.
+SetType sets Type field to given value.
 
 
-### GetIdentifierValue
+### GetValue
 
-`func (o *AccountExistsIdentifierParameter) GetIdentifierValue() string`
+`func (o *AccountExistsIdentifierParameter) GetValue() string`
 
-GetIdentifierValue returns the IdentifierValue field if non-nil, zero value otherwise.
+GetValue returns the Value field if non-nil, zero value otherwise.
 
-### GetIdentifierValueOk
+### GetValueOk
 
-`func (o *AccountExistsIdentifierParameter) GetIdentifierValueOk() (*string, bool)`
+`func (o *AccountExistsIdentifierParameter) GetValueOk() (*string, bool)`
 
-GetIdentifierValueOk returns a tuple with the IdentifierValue field if it's non-nil, zero value otherwise
+GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetIdentifierValue
+### SetValue
 
-`func (o *AccountExistsIdentifierParameter) SetIdentifierValue(v string)`
+`func (o *AccountExistsIdentifierParameter) SetValue(v string)`
 
-SetIdentifierValue sets IdentifierValue field to given value.
+SetValue sets Value field to given value.
 
 
 

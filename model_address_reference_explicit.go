@@ -20,9 +20,7 @@ var _ MappedNullable = &AddressReferenceExplicit{}
 
 // AddressReferenceExplicit struct for AddressReferenceExplicit
 type AddressReferenceExplicit struct {
-	// The type of address reference
-	Tag string `json:".tag"`
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 	FirstName string `json:"first_name"`
 	LastName string `json:"last_name"`
 	Company *string `json:"company,omitempty"`
@@ -34,21 +32,24 @@ type AddressReferenceExplicit struct {
 	CountryCode string `json:"country_code"`
 	Email *string `json:"email,omitempty"`
 	Phone *string `json:"phone,omitempty"`
+	// The type of address reference
+	Tag string `json:".tag"`
 }
 
 // NewAddressReferenceExplicit instantiates a new AddressReferenceExplicit object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAddressReferenceExplicit(tag string, firstName string, lastName string, streetAddress1 string, locality string, postalCode string, countryCode string) *AddressReferenceExplicit {
+func NewAddressReferenceExplicit(id string, firstName string, lastName string, streetAddress1 string, locality string, postalCode string, countryCode string, tag string) *AddressReferenceExplicit {
 	this := AddressReferenceExplicit{}
-	this.Tag = tag
+	this.Id = id
 	this.FirstName = firstName
 	this.LastName = lastName
 	this.StreetAddress1 = streetAddress1
 	this.Locality = locality
 	this.PostalCode = postalCode
 	this.CountryCode = countryCode
+	this.Tag = tag
 	return &this
 }
 
@@ -60,60 +61,28 @@ func NewAddressReferenceExplicitWithDefaults() *AddressReferenceExplicit {
 	return &this
 }
 
-// GetTag returns the Tag field value
-func (o *AddressReferenceExplicit) GetTag() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Tag
-}
-
-// GetTagOk returns a tuple with the Tag field value
-// and a boolean to check if the value has been set.
-func (o *AddressReferenceExplicit) GetTagOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Tag, true
-}
-
-// SetTag sets field value
-func (o *AddressReferenceExplicit) SetTag(v string) {
-	o.Tag = v
-}
-
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *AddressReferenceExplicit) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *AddressReferenceExplicit) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *AddressReferenceExplicit) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *AddressReferenceExplicit) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
 // GetFirstName returns the FirstName field value
@@ -420,6 +389,30 @@ func (o *AddressReferenceExplicit) SetPhone(v string) {
 	o.Phone = &v
 }
 
+// GetTag returns the Tag field value
+func (o *AddressReferenceExplicit) GetTag() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Tag
+}
+
+// GetTagOk returns a tuple with the Tag field value
+// and a boolean to check if the value has been set.
+func (o *AddressReferenceExplicit) GetTagOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Tag, true
+}
+
+// SetTag sets field value
+func (o *AddressReferenceExplicit) SetTag(v string) {
+	o.Tag = v
+}
+
 func (o AddressReferenceExplicit) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -430,10 +423,7 @@ func (o AddressReferenceExplicit) MarshalJSON() ([]byte, error) {
 
 func (o AddressReferenceExplicit) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize[".tag"] = o.Tag
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
+	toSerialize["id"] = o.Id
 	toSerialize["first_name"] = o.FirstName
 	toSerialize["last_name"] = o.LastName
 	if !IsNil(o.Company) {
@@ -455,6 +445,7 @@ func (o AddressReferenceExplicit) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Phone) {
 		toSerialize["phone"] = o.Phone
 	}
+	toSerialize[".tag"] = o.Tag
 	return toSerialize, nil
 }
 

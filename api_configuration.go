@@ -20,12 +20,12 @@ import (
 )
 
 
-// ConfigurationApiService ConfigurationApi service
-type ConfigurationApiService service
+// ConfigurationAPIService ConfigurationAPI service
+type ConfigurationAPIService service
 
 type ApiMerchantCallbacksGetRequest struct {
 	ctx context.Context
-	ApiService *ConfigurationApiService
+	ApiService *ConfigurationAPIService
 	xPublishableKey *string
 }
 
@@ -48,7 +48,7 @@ Return callback URLs configured on the merchant such as OAuth URLs.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiMerchantCallbacksGetRequest
 */
-func (a *ConfigurationApiService) MerchantCallbacksGet(ctx context.Context) ApiMerchantCallbacksGetRequest {
+func (a *ConfigurationAPIService) MerchantCallbacksGet(ctx context.Context) ApiMerchantCallbacksGetRequest {
 	return ApiMerchantCallbacksGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -57,7 +57,7 @@ func (a *ConfigurationApiService) MerchantCallbacksGet(ctx context.Context) ApiM
 
 // Execute executes the request
 //  @return CallbackUrls
-func (a *ConfigurationApiService) MerchantCallbacksGetExecute(r ApiMerchantCallbacksGetRequest) (*CallbackUrls, *http.Response, error) {
+func (a *ConfigurationAPIService) MerchantCallbacksGetExecute(r ApiMerchantCallbacksGetRequest) (*CallbackUrls, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -65,7 +65,7 @@ func (a *ConfigurationApiService) MerchantCallbacksGetExecute(r ApiMerchantCallb
 		localVarReturnValue  *CallbackUrls
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigurationApiService.MerchantCallbacksGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigurationAPIService.MerchantCallbacksGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -150,7 +150,7 @@ func (a *ConfigurationApiService) MerchantCallbacksGetExecute(r ApiMerchantCallb
 
 type ApiMerchantCallbacksUpdateRequest struct {
 	ctx context.Context
-	ApiService *ConfigurationApiService
+	ApiService *ConfigurationAPIService
 	xPublishableKey *string
 	callbackUrls *CallbackUrls
 }
@@ -179,7 +179,7 @@ Update and configure callback URLs on the merchant such as OAuth URLs.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiMerchantCallbacksUpdateRequest
 */
-func (a *ConfigurationApiService) MerchantCallbacksUpdate(ctx context.Context) ApiMerchantCallbacksUpdateRequest {
+func (a *ConfigurationAPIService) MerchantCallbacksUpdate(ctx context.Context) ApiMerchantCallbacksUpdateRequest {
 	return ApiMerchantCallbacksUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -188,7 +188,7 @@ func (a *ConfigurationApiService) MerchantCallbacksUpdate(ctx context.Context) A
 
 // Execute executes the request
 //  @return CallbackUrls
-func (a *ConfigurationApiService) MerchantCallbacksUpdateExecute(r ApiMerchantCallbacksUpdateRequest) (*CallbackUrls, *http.Response, error) {
+func (a *ConfigurationAPIService) MerchantCallbacksUpdateExecute(r ApiMerchantCallbacksUpdateRequest) (*CallbackUrls, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -196,7 +196,7 @@ func (a *ConfigurationApiService) MerchantCallbacksUpdateExecute(r ApiMerchantCa
 		localVarReturnValue  *CallbackUrls
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigurationApiService.MerchantCallbacksUpdate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigurationAPIService.MerchantCallbacksUpdate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -296,7 +296,7 @@ func (a *ConfigurationApiService) MerchantCallbacksUpdateExecute(r ApiMerchantCa
 
 type ApiMerchantIdentifiersGetRequest struct {
 	ctx context.Context
-	ApiService *ConfigurationApiService
+	ApiService *ConfigurationAPIService
 }
 
 func (r ApiMerchantIdentifiersGetRequest) Execute() (*Identifiers, *http.Response, error) {
@@ -311,7 +311,7 @@ Return several identifiers for the merchant, such as public IDs, publishable key
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiMerchantIdentifiersGetRequest
 */
-func (a *ConfigurationApiService) MerchantIdentifiersGet(ctx context.Context) ApiMerchantIdentifiersGetRequest {
+func (a *ConfigurationAPIService) MerchantIdentifiersGet(ctx context.Context) ApiMerchantIdentifiersGetRequest {
 	return ApiMerchantIdentifiersGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -320,7 +320,7 @@ func (a *ConfigurationApiService) MerchantIdentifiersGet(ctx context.Context) Ap
 
 // Execute executes the request
 //  @return Identifiers
-func (a *ConfigurationApiService) MerchantIdentifiersGetExecute(r ApiMerchantIdentifiersGetRequest) (*Identifiers, *http.Response, error) {
+func (a *ConfigurationAPIService) MerchantIdentifiersGetExecute(r ApiMerchantIdentifiersGetRequest) (*Identifiers, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -328,7 +328,7 @@ func (a *ConfigurationApiService) MerchantIdentifiersGetExecute(r ApiMerchantIde
 		localVarReturnValue  *Identifiers
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigurationApiService.MerchantIdentifiersGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigurationAPIService.MerchantIdentifiersGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

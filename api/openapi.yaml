@@ -97,10 +97,8 @@ paths:
             examples:
               address-all-fields:
                 $ref: '#/components/examples/address-all-fields'
-                value: null
               address-some-fields:
                 $ref: '#/components/examples/address-some-fields'
-                value: null
             schema:
               $ref: '#/components/schemas/address-listing'
         required: true
@@ -211,10 +209,8 @@ paths:
             examples:
               address-all-fields:
                 $ref: '#/components/examples/address-all-fields'
-                value: null
               address-some-fields:
                 $ref: '#/components/examples/address-some-fields'
-                value: null
             schema:
               $ref: '#/components/schemas/address-listing'
         required: true
@@ -326,10 +322,8 @@ paths:
             examples:
               credit-card-address-reference-id:
                 $ref: '#/components/examples/credit-card-with-address-id'
-                value: null
               credit-card-address-reference-explicit:
                 $ref: '#/components/examples/credit-card-with-address-explicit'
-                value: null
             schema:
               $ref: '#/components/schemas/payment-method'
         required: true
@@ -345,6 +339,50 @@ paths:
         - bolt.account.manage
         api-key: []
       summary: Add a payment method to a shopper's Bolt account Wallet.
+      tags:
+      - Account
+  /account/payment-methods/{id}:
+    delete:
+      description: |
+        Delete an existing payment method. Deleting a payment method does not invalidate transactions or
+        orders that are associated with it.
+      operationId: accountPaymentMethodDelete
+      parameters:
+      - description: The publicly viewable identifier used to identify a merchant
+          division.
+        explode: false
+        in: header
+        name: X-Publishable-Key
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The ID of the payment method to delete
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          example: D4g3h5tBuVYK9
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: The payment method was successfully deleted
+        "422":
+          content:
+            application/json:
+              example:
+                ".tag": not_found
+                message: The resource does not exist
+              schema:
+                $ref: '#/components/schemas/error'
+          description: The specified resource was not found
+      security:
+      - oauth:
+        - bolt.account.manage
+        api-key: []
+      summary: Delete an existing payment method
       tags:
       - Account
   /payments:
@@ -369,7 +407,6 @@ paths:
             examples:
               saved_payment_method:
                 $ref: '#/components/examples/initialize_payment_with_saved_payment_method'
-                value: null
             schema:
               $ref: '#/components/schemas/payment-method-initialize-request'
         required: true
@@ -409,7 +446,6 @@ paths:
             examples:
               paypal:
                 $ref: '#/components/examples/payment-method-initialize-paypal'
-                value: null
             schema:
               $ref: '#/components/schemas/guest-payment-method-initialize-request'
         required: true
@@ -793,7 +829,7 @@ components:
         last4: "1004"
         expiration: 2025-03
         token: a1B2c3D4e5F6G7H8i9J0k1L2m3N4o5P6Q7r8S9t0
-        billing_address_input:
+        billing_address:
           ".tag": id
           id: D4g3h5tBuVYK9
     credit-card-with-address-explicit:
@@ -806,7 +842,7 @@ components:
         last4: "1004"
         expiration: 2025-03
         token: a1B2c3D4e5F6G7H8i9J0k1L2m3N4o5P6Q7r8S9t0
-        billing_address_input:
+        billing_address:
           ".tag": explicit
           first_name: Charlie
           last_name: Dunn
@@ -965,6 +1001,7 @@ components:
       properties:
         id:
           example: D4g3h5tBuVYK9
+          readOnly: true
           type: string
         first_name:
           example: Alice
@@ -1004,6 +1041,7 @@ components:
       required:
       - country_code
       - first_name
+      - id
       - last_name
       - locality
       - postal_code
@@ -1012,7 +1050,11 @@ components:
     address-listing:
       allOf:
       - $ref: '#/components/schemas/address'
-      - $ref: '#/components/schemas/address_listing_allOf'
+      - properties:
+          is_default:
+            example: true
+            type: boolean
+        type: object
       type: object
     address-reference-id:
       properties:
@@ -1032,7 +1074,16 @@ components:
       type: object
     address-reference-explicit:
       allOf:
-      - $ref: '#/components/schemas/address_reference_explicit_allOf'
+      - properties:
+          ".tag":
+            description: The type of address reference
+            enum:
+            - explicit
+            example: explicit
+            type: string
+        required:
+        - .tag
+        type: object
       - $ref: '#/components/schemas/address'
     address-reference:
       discriminator:
@@ -1070,6 +1121,7 @@ components:
           example: "411111"
           format: ^\d+$
           type: string
+          writeOnly: true
         last4:
           description: The last 4 digits of the credit card number.
           example: "1004"
@@ -1085,6 +1137,7 @@ components:
           description: The Bolt token associated to the credit card.
           example: a1B2c3D4e5F6G7H8i9J0k1L2m3N4o5P6Q7r8S9t0
           type: string
+          writeOnly: true
       required:
       - bin
       - expiration
@@ -1094,7 +1147,28 @@ components:
       type: object
     payment-method-credit-card:
       allOf:
-      - $ref: '#/components/schemas/payment_method_credit_card_allOf'
+      - properties:
+          ".tag":
+            enum:
+            - credit_card
+            example: credit_card
+            type: string
+          id:
+            example: X5h6j8uLpVGK0
+            readOnly: true
+            type: string
+          billing_address:
+            $ref: '#/components/schemas/address-reference'
+          billing_address_id:
+            description: The ID of credit card's billing address
+            example: D4g3h5tBuVYK9
+            readOnly: true
+            type: string
+        required:
+        - .tag
+        - billing_address
+        - type
+        type: object
       - $ref: '#/components/schemas/credit-card'
     payment-method:
       discriminator:
@@ -1242,7 +1316,7 @@ components:
       - currency
       - total
       type: object
-    cart_shipment:
+    cart-shipment:
       properties:
         address:
           $ref: '#/components/schemas/address-reference'
@@ -1253,7 +1327,7 @@ components:
           example: FedEx
           type: string
       type: object
-    cart_discount:
+    cart-discount:
       properties:
         amounts:
           $ref: '#/components/schemas/amounts'
@@ -1343,11 +1417,11 @@ components:
           type: string
         shipments:
           items:
-            $ref: '#/components/schemas/cart_shipment'
+            $ref: '#/components/schemas/cart-shipment'
           type: array
         discounts:
           items:
-            $ref: '#/components/schemas/cart_discount'
+            $ref: '#/components/schemas/cart-discount'
           type: array
         items:
           items:
@@ -1756,21 +1830,21 @@ components:
       - $ref: '#/components/schemas/address-error-invalid-region'
     accountExists_identifier_parameter:
       properties:
-        identifier_type:
+        type:
           description: The type of identifier
           enum:
           - email
           - email_sha256
           example: email
           type: string
-        identifier_value:
+        value:
           description: The value of the identifier. The value must be valid for the
             specified `identifier_type`
           example: alice@example.com
           type: string
       required:
-      - identifier_type
-      - identifier_value
+      - type
+      - value
       type: object
     merchantCallbacksUpdate_400_response:
       oneOf:
@@ -1799,53 +1873,6 @@ components:
       required:
       - message
       type: object
-    address_listing_allOf:
-      properties:
-        is_default:
-          example: true
-          type: boolean
-      type: object
-      example: null
-    address_reference_explicit_allOf:
-      properties:
-        ".tag":
-          description: The type of address reference
-          enum:
-          - explicit
-          example: explicit
-          type: string
-      required:
-      - .tag
-      type: object
-      example: null
-    payment_method_credit_card_allOf:
-      properties:
-        ".tag":
-          enum:
-          - credit_card
-          example: credit_card
-          type: string
-        id:
-          example: X5h6j8uLpVGK0
-          type: string
-        type:
-          description: Credit card type
-          enum:
-          - credit
-          - plcc
-          example: credit
-          type: string
-        billing_address_input:
-          $ref: '#/components/schemas/address-reference'
-        billing_address_id:
-          description: The ID of credit card's billing address
-          example: D4g3h5tBuVYK9
-          type: string
-      required:
-      - .tag
-      - type
-      type: object
-      example: null
     payment_method_initialize_request_payment_method:
       oneOf:
       - $ref: '#/components/schemas/payment-method-saved-payment-method'

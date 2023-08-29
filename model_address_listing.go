@@ -20,7 +20,7 @@ var _ MappedNullable = &AddressListing{}
 
 // AddressListing struct for AddressListing
 type AddressListing struct {
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 	FirstName string `json:"first_name"`
 	LastName string `json:"last_name"`
 	Company *string `json:"company,omitempty"`
@@ -39,8 +39,9 @@ type AddressListing struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAddressListing(firstName string, lastName string, streetAddress1 string, locality string, postalCode string, countryCode string) *AddressListing {
+func NewAddressListing(id string, firstName string, lastName string, streetAddress1 string, locality string, postalCode string, countryCode string) *AddressListing {
 	this := AddressListing{}
+	this.Id = id
 	this.FirstName = firstName
 	this.LastName = lastName
 	this.StreetAddress1 = streetAddress1
@@ -58,36 +59,28 @@ func NewAddressListingWithDefaults() *AddressListing {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *AddressListing) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *AddressListing) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *AddressListing) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *AddressListing) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
 // GetFirstName returns the FirstName field value
@@ -436,9 +429,7 @@ func (o AddressListing) MarshalJSON() ([]byte, error) {
 
 func (o AddressListing) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
+	toSerialize["id"] = o.Id
 	toSerialize["first_name"] = o.FirstName
 	toSerialize["last_name"] = o.LastName
 	if !IsNil(o.Company) {

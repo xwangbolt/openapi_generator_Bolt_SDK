@@ -1,12 +1,12 @@
-# \TestingApi
+# \TestingAPI
 
 All URIs are relative to *https://api.xwang.dev.bolt.me/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**TestingAccountCreate**](TestingApi.md#TestingAccountCreate) | **Post** /testing/accounts | Create a test account
-[**TestingCreditCardGet**](TestingApi.md#TestingCreditCardGet) | **Get** /testing/credit-cards | Retrieve a test credit card, including its token
-[**TestingShipmentTrackingCreate**](TestingApi.md#TestingShipmentTrackingCreate) | **Post** /testing/shipments | Simulate a shipment tracking update
+[**TestingAccountCreate**](TestingAPI.md#TestingAccountCreate) | **Post** /testing/accounts | Create a test account
+[**TestingCreditCardGet**](TestingAPI.md#TestingCreditCardGet) | **Get** /testing/credit-cards | Retrieve a test credit card, including its token
+[**TestingShipmentTrackingCreate**](TestingAPI.md#TestingShipmentTrackingCreate) | **Post** /testing/shipments | Simulate a shipment tracking update
 
 
 
@@ -36,13 +36,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TestingApi.TestingAccountCreate(context.Background()).AccountTestCreationData(accountTestCreationData).Execute()
+    resp, r, err := apiClient.TestingAPI.TestingAccountCreate(context.Background()).AccountTestCreationData(accountTestCreationData).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TestingApi.TestingAccountCreate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TestingAPI.TestingAccountCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `TestingAccountCreate`: AccountTestCreationData
-    fmt.Fprintf(os.Stdout, "Response from `TestingApi.TestingAccountCreate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `TestingAPI.TestingAccountCreate`: %v\n", resp)
 }
 ```
 
@@ -101,13 +101,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TestingApi.TestingCreditCardGet(context.Background()).Execute()
+    resp, r, err := apiClient.TestingAPI.TestingCreditCardGet(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TestingApi.TestingCreditCardGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TestingAPI.TestingCreditCardGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `TestingCreditCardGet`: CreditCard
-    fmt.Fprintf(os.Stdout, "Response from `TestingApi.TestingCreditCardGet`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `TestingAPI.TestingCreditCardGet`: %v\n", resp)
 }
 ```
 
@@ -163,9 +163,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.TestingApi.TestingShipmentTrackingCreate(context.Background()).ShipmentTrackingUpdate(shipmentTrackingUpdate).Execute()
+    r, err := apiClient.TestingAPI.TestingShipmentTrackingCreate(context.Background()).ShipmentTrackingUpdate(shipmentTrackingUpdate).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TestingApi.TestingShipmentTrackingCreate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TestingAPI.TestingShipmentTrackingCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }

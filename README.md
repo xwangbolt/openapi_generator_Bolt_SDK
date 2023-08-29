@@ -79,24 +79,25 @@ All URIs are relative to *https://api.xwang.dev.bolt.me/v3*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AccountApi* | [**AccountAddPaymentMethod**](docs/AccountApi.md#accountaddpaymentmethod) | **Post** /account/payment-methods | Add a payment method to a shopper&#39;s Bolt account Wallet.
-*AccountApi* | [**AccountAddressCreate**](docs/AccountApi.md#accountaddresscreate) | **Post** /account/addresses | Add an address
-*AccountApi* | [**AccountAddressDelete**](docs/AccountApi.md#accountaddressdelete) | **Delete** /account/addresses/{id} | Delete an existing address
-*AccountApi* | [**AccountAddressEdit**](docs/AccountApi.md#accountaddressedit) | **Put** /account/addresses/{id} | Edit an existing address
-*AccountApi* | [**AccountExists**](docs/AccountApi.md#accountexists) | **Get** /account/exists | Determine the existence of a Bolt account
-*AccountApi* | [**AccountGet**](docs/AccountApi.md#accountget) | **Get** /account | Retrieve account details
-*ConfigurationApi* | [**MerchantCallbacksGet**](docs/ConfigurationApi.md#merchantcallbacksget) | **Get** /merchant/callbacks | Retrieve callback URLs for the merchant
-*ConfigurationApi* | [**MerchantCallbacksUpdate**](docs/ConfigurationApi.md#merchantcallbacksupdate) | **Patch** /merchant/callbacks | Update callback URLs for the merchant
-*ConfigurationApi* | [**MerchantIdentifiersGet**](docs/ConfigurationApi.md#merchantidentifiersget) | **Get** /merchant/identifiers | Retrieve identifiers for the merchant
-*PaymentsApi* | [**GuestPaymentsInitialize**](docs/PaymentsApi.md#guestpaymentsinitialize) | **Post** /guest/payments | Initialize a Bolt payment for guest shoppers
-*PaymentsApi* | [**PaymentsInitialize**](docs/PaymentsApi.md#paymentsinitialize) | **Post** /payments | Initialize a Bolt payment for logged in shoppers
-*TestingApi* | [**TestingAccountCreate**](docs/TestingApi.md#testingaccountcreate) | **Post** /testing/accounts | Create a test account
-*TestingApi* | [**TestingCreditCardGet**](docs/TestingApi.md#testingcreditcardget) | **Get** /testing/credit-cards | Retrieve a test credit card, including its token
-*TestingApi* | [**TestingShipmentTrackingCreate**](docs/TestingApi.md#testingshipmenttrackingcreate) | **Post** /testing/shipments | Simulate a shipment tracking update
-*WebhooksApi* | [**WebhooksCreate**](docs/WebhooksApi.md#webhookscreate) | **Put** /webhooks | Create a webhook to subscribe to certain events
-*WebhooksApi* | [**WebhooksDelete**](docs/WebhooksApi.md#webhooksdelete) | **Delete** /webhooks/{id} | Delete an existing webhook
-*WebhooksApi* | [**WebhooksGet**](docs/WebhooksApi.md#webhooksget) | **Get** /webhooks/{id} | Retrieve information for a specific webhook
-*WebhooksApi* | [**WebhooksGetAll**](docs/WebhooksApi.md#webhooksgetall) | **Get** /webhooks | Retrieve information about all existing webhooks
+*AccountAPI* | [**AccountAddPaymentMethod**](docs/AccountAPI.md#accountaddpaymentmethod) | **Post** /account/payment-methods | Add a payment method to a shopper&#39;s Bolt account Wallet.
+*AccountAPI* | [**AccountAddressCreate**](docs/AccountAPI.md#accountaddresscreate) | **Post** /account/addresses | Add an address
+*AccountAPI* | [**AccountAddressDelete**](docs/AccountAPI.md#accountaddressdelete) | **Delete** /account/addresses/{id} | Delete an existing address
+*AccountAPI* | [**AccountAddressEdit**](docs/AccountAPI.md#accountaddressedit) | **Put** /account/addresses/{id} | Edit an existing address
+*AccountAPI* | [**AccountExists**](docs/AccountAPI.md#accountexists) | **Get** /account/exists | Determine the existence of a Bolt account
+*AccountAPI* | [**AccountGet**](docs/AccountAPI.md#accountget) | **Get** /account | Retrieve account details
+*AccountAPI* | [**AccountPaymentMethodDelete**](docs/AccountAPI.md#accountpaymentmethoddelete) | **Delete** /account/payment-methods/{id} | Delete an existing payment method
+*ConfigurationAPI* | [**MerchantCallbacksGet**](docs/ConfigurationAPI.md#merchantcallbacksget) | **Get** /merchant/callbacks | Retrieve callback URLs for the merchant
+*ConfigurationAPI* | [**MerchantCallbacksUpdate**](docs/ConfigurationAPI.md#merchantcallbacksupdate) | **Patch** /merchant/callbacks | Update callback URLs for the merchant
+*ConfigurationAPI* | [**MerchantIdentifiersGet**](docs/ConfigurationAPI.md#merchantidentifiersget) | **Get** /merchant/identifiers | Retrieve identifiers for the merchant
+*PaymentsAPI* | [**GuestPaymentsInitialize**](docs/PaymentsAPI.md#guestpaymentsinitialize) | **Post** /guest/payments | Initialize a Bolt payment for guest shoppers
+*PaymentsAPI* | [**PaymentsInitialize**](docs/PaymentsAPI.md#paymentsinitialize) | **Post** /payments | Initialize a Bolt payment for logged in shoppers
+*TestingAPI* | [**TestingAccountCreate**](docs/TestingAPI.md#testingaccountcreate) | **Post** /testing/accounts | Create a test account
+*TestingAPI* | [**TestingCreditCardGet**](docs/TestingAPI.md#testingcreditcardget) | **Get** /testing/credit-cards | Retrieve a test credit card, including its token
+*TestingAPI* | [**TestingShipmentTrackingCreate**](docs/TestingAPI.md#testingshipmenttrackingcreate) | **Post** /testing/shipments | Simulate a shipment tracking update
+*WebhooksAPI* | [**WebhooksCreate**](docs/WebhooksAPI.md#webhookscreate) | **Put** /webhooks | Create a webhook to subscribe to certain events
+*WebhooksAPI* | [**WebhooksDelete**](docs/WebhooksAPI.md#webhooksdelete) | **Delete** /webhooks/{id} | Delete an existing webhook
+*WebhooksAPI* | [**WebhooksGet**](docs/WebhooksAPI.md#webhooksget) | **Get** /webhooks/{id} | Retrieve information for a specific webhook
+*WebhooksAPI* | [**WebhooksGetAll**](docs/WebhooksAPI.md#webhooksgetall) | **Get** /webhooks | Retrieve information about all existing webhooks
 
 
 ## Documentation For Models
@@ -109,10 +110,8 @@ Class | Method | HTTP request | Description
  - [AddressErrorInvalidPostalCode](docs/AddressErrorInvalidPostalCode.md)
  - [AddressErrorInvalidRegion](docs/AddressErrorInvalidRegion.md)
  - [AddressListing](docs/AddressListing.md)
- - [AddressListingAllOf](docs/AddressListingAllOf.md)
  - [AddressReference](docs/AddressReference.md)
  - [AddressReferenceExplicit](docs/AddressReferenceExplicit.md)
- - [AddressReferenceExplicitAllOf](docs/AddressReferenceExplicitAllOf.md)
  - [AddressReferenceId](docs/AddressReferenceId.md)
  - [Amounts](docs/Amounts.md)
  - [CallbackUrlErrorInvalidUrl](docs/CallbackUrlErrorInvalidUrl.md)
@@ -132,7 +131,6 @@ Class | Method | HTTP request | Description
  - [ModelError](docs/ModelError.md)
  - [PaymentMethod](docs/PaymentMethod.md)
  - [PaymentMethodCreditCard](docs/PaymentMethodCreditCard.md)
- - [PaymentMethodCreditCardAllOf](docs/PaymentMethodCreditCardAllOf.md)
  - [PaymentMethodInitializeRequest](docs/PaymentMethodInitializeRequest.md)
  - [PaymentMethodInitializeRequestPaymentMethod](docs/PaymentMethodInitializeRequestPaymentMethod.md)
  - [PaymentMethodInitializeResponse](docs/PaymentMethodInitializeResponse.md)
@@ -159,6 +157,19 @@ Authentication schemes defined for the API:
 - **Location**: HTTP header
 
 Note, each API key must be added to a map of `map[string]APIKey` where the key is: X-API-Key and passed in as the auth context for each request.
+
+Example
+
+```golang
+auth := context.WithValue(
+		context.Background(),
+		sw.ContextAPIKeys,
+		map[string]sw.APIKey{
+			"X-API-Key": {Key: "API_KEY_STRING"},
+		},
+	)
+r, err := client.Service.Operation(auth, args)
+```
 
 ### oauth
 

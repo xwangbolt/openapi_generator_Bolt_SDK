@@ -20,12 +20,12 @@ import (
 )
 
 
-// PaymentsApiService PaymentsApi service
-type PaymentsApiService service
+// PaymentsAPIService PaymentsAPI service
+type PaymentsAPIService service
 
 type ApiGuestPaymentsInitializeRequest struct {
 	ctx context.Context
-	ApiService *PaymentsApiService
+	ApiService *PaymentsAPIService
 	xPublishableKey *string
 	guestPaymentMethodInitializeRequest *GuestPaymentMethodInitializeRequest
 }
@@ -55,7 +55,7 @@ Bolt when it is updated or finalized for guest shoppers.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGuestPaymentsInitializeRequest
 */
-func (a *PaymentsApiService) GuestPaymentsInitialize(ctx context.Context) ApiGuestPaymentsInitializeRequest {
+func (a *PaymentsAPIService) GuestPaymentsInitialize(ctx context.Context) ApiGuestPaymentsInitializeRequest {
 	return ApiGuestPaymentsInitializeRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -64,7 +64,7 @@ func (a *PaymentsApiService) GuestPaymentsInitialize(ctx context.Context) ApiGue
 
 // Execute executes the request
 //  @return PaymentMethodInitializeResponse
-func (a *PaymentsApiService) GuestPaymentsInitializeExecute(r ApiGuestPaymentsInitializeRequest) (*PaymentMethodInitializeResponse, *http.Response, error) {
+func (a *PaymentsAPIService) GuestPaymentsInitializeExecute(r ApiGuestPaymentsInitializeRequest) (*PaymentMethodInitializeResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -72,7 +72,7 @@ func (a *PaymentsApiService) GuestPaymentsInitializeExecute(r ApiGuestPaymentsIn
 		localVarReturnValue  *PaymentMethodInitializeResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PaymentsApiService.GuestPaymentsInitialize")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PaymentsAPIService.GuestPaymentsInitialize")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -162,7 +162,7 @@ func (a *PaymentsApiService) GuestPaymentsInitializeExecute(r ApiGuestPaymentsIn
 
 type ApiPaymentsInitializeRequest struct {
 	ctx context.Context
-	ApiService *PaymentsApiService
+	ApiService *PaymentsAPIService
 	xPublishableKey *string
 	paymentMethodInitializeRequest *PaymentMethodInitializeRequest
 }
@@ -192,7 +192,7 @@ Bolt when it is updated or finalized for logged in shoppers.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiPaymentsInitializeRequest
 */
-func (a *PaymentsApiService) PaymentsInitialize(ctx context.Context) ApiPaymentsInitializeRequest {
+func (a *PaymentsAPIService) PaymentsInitialize(ctx context.Context) ApiPaymentsInitializeRequest {
 	return ApiPaymentsInitializeRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -201,7 +201,7 @@ func (a *PaymentsApiService) PaymentsInitialize(ctx context.Context) ApiPayments
 
 // Execute executes the request
 //  @return PaymentMethodInitializeResponse
-func (a *PaymentsApiService) PaymentsInitializeExecute(r ApiPaymentsInitializeRequest) (*PaymentMethodInitializeResponse, *http.Response, error) {
+func (a *PaymentsAPIService) PaymentsInitializeExecute(r ApiPaymentsInitializeRequest) (*PaymentMethodInitializeResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -209,7 +209,7 @@ func (a *PaymentsApiService) PaymentsInitializeExecute(r ApiPaymentsInitializeRe
 		localVarReturnValue  *PaymentMethodInitializeResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PaymentsApiService.PaymentsInitialize")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PaymentsAPIService.PaymentsInitialize")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

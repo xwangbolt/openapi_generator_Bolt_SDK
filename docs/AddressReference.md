@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Tag** | **string** | The type of address reference | 
-**Id** | **string** |  | 
+**Id** | **string** |  | [readonly] 
 **FirstName** | **string** |  | 
 **LastName** | **string** |  | 
 **Company** | Pointer to **string** |  | [optional] 

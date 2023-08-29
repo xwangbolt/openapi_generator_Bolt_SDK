@@ -21,12 +21,12 @@ import (
 )
 
 
-// AccountApiService AccountApi service
-type AccountApiService service
+// AccountAPIService AccountAPI service
+type AccountAPIService service
 
 type ApiAccountAddPaymentMethodRequest struct {
 	ctx context.Context
-	ApiService *AccountApiService
+	ApiService *AccountAPIService
 	xPublishableKey *string
 	paymentMethod *PaymentMethod
 }
@@ -58,7 +58,7 @@ which is documented in [Install the Bolt Tokenizer](https://help.bolt.com/develo
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiAccountAddPaymentMethodRequest
 */
-func (a *AccountApiService) AccountAddPaymentMethod(ctx context.Context) ApiAccountAddPaymentMethodRequest {
+func (a *AccountAPIService) AccountAddPaymentMethod(ctx context.Context) ApiAccountAddPaymentMethodRequest {
 	return ApiAccountAddPaymentMethodRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -67,7 +67,7 @@ func (a *AccountApiService) AccountAddPaymentMethod(ctx context.Context) ApiAcco
 
 // Execute executes the request
 //  @return PaymentMethod
-func (a *AccountApiService) AccountAddPaymentMethodExecute(r ApiAccountAddPaymentMethodRequest) (*PaymentMethod, *http.Response, error) {
+func (a *AccountAPIService) AccountAddPaymentMethodExecute(r ApiAccountAddPaymentMethodRequest) (*PaymentMethod, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -75,7 +75,7 @@ func (a *AccountApiService) AccountAddPaymentMethodExecute(r ApiAccountAddPaymen
 		localVarReturnValue  *PaymentMethod
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountApiService.AccountAddPaymentMethod")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountAPIService.AccountAddPaymentMethod")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -165,7 +165,7 @@ func (a *AccountApiService) AccountAddPaymentMethodExecute(r ApiAccountAddPaymen
 
 type ApiAccountAddressCreateRequest struct {
 	ctx context.Context
-	ApiService *AccountApiService
+	ApiService *AccountAPIService
 	xPublishableKey *string
 	addressListing *AddressListing
 }
@@ -193,7 +193,7 @@ Add an address to the shopper's account
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiAccountAddressCreateRequest
 */
-func (a *AccountApiService) AccountAddressCreate(ctx context.Context) ApiAccountAddressCreateRequest {
+func (a *AccountAPIService) AccountAddressCreate(ctx context.Context) ApiAccountAddressCreateRequest {
 	return ApiAccountAddressCreateRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -202,7 +202,7 @@ func (a *AccountApiService) AccountAddressCreate(ctx context.Context) ApiAccount
 
 // Execute executes the request
 //  @return AddressListing
-func (a *AccountApiService) AccountAddressCreateExecute(r ApiAccountAddressCreateRequest) (*AddressListing, *http.Response, error) {
+func (a *AccountAPIService) AccountAddressCreateExecute(r ApiAccountAddressCreateRequest) (*AddressListing, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -210,7 +210,7 @@ func (a *AccountApiService) AccountAddressCreateExecute(r ApiAccountAddressCreat
 		localVarReturnValue  *AddressListing
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountApiService.AccountAddressCreate")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountAPIService.AccountAddressCreate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -310,7 +310,7 @@ func (a *AccountApiService) AccountAddressCreateExecute(r ApiAccountAddressCreat
 
 type ApiAccountAddressDeleteRequest struct {
 	ctx context.Context
-	ApiService *AccountApiService
+	ApiService *AccountAPIService
 	xPublishableKey *string
 	id string
 }
@@ -336,7 +336,7 @@ shipments that are associated with it.
  @param id The ID of the address to delete
  @return ApiAccountAddressDeleteRequest
 */
-func (a *AccountApiService) AccountAddressDelete(ctx context.Context, id string) ApiAccountAddressDeleteRequest {
+func (a *AccountAPIService) AccountAddressDelete(ctx context.Context, id string) ApiAccountAddressDeleteRequest {
 	return ApiAccountAddressDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -345,14 +345,14 @@ func (a *AccountApiService) AccountAddressDelete(ctx context.Context, id string)
 }
 
 // Execute executes the request
-func (a *AccountApiService) AccountAddressDeleteExecute(r ApiAccountAddressDeleteRequest) (*http.Response, error) {
+func (a *AccountAPIService) AccountAddressDeleteExecute(r ApiAccountAddressDeleteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountApiService.AccountAddressDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountAPIService.AccountAddressDelete")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -439,7 +439,7 @@ func (a *AccountApiService) AccountAddressDeleteExecute(r ApiAccountAddressDelet
 
 type ApiAccountAddressEditRequest struct {
 	ctx context.Context
-	ApiService *AccountApiService
+	ApiService *AccountAPIService
 	xPublishableKey *string
 	id string
 	addressListing *AddressListing
@@ -472,7 +472,7 @@ shipments.
  @param id The ID of the address to edit
  @return ApiAccountAddressEditRequest
 */
-func (a *AccountApiService) AccountAddressEdit(ctx context.Context, id string) ApiAccountAddressEditRequest {
+func (a *AccountAPIService) AccountAddressEdit(ctx context.Context, id string) ApiAccountAddressEditRequest {
 	return ApiAccountAddressEditRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -482,7 +482,7 @@ func (a *AccountApiService) AccountAddressEdit(ctx context.Context, id string) A
 
 // Execute executes the request
 //  @return AddressListing
-func (a *AccountApiService) AccountAddressEditExecute(r ApiAccountAddressEditRequest) (*AddressListing, *http.Response, error) {
+func (a *AccountAPIService) AccountAddressEditExecute(r ApiAccountAddressEditRequest) (*AddressListing, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -490,7 +490,7 @@ func (a *AccountApiService) AccountAddressEditExecute(r ApiAccountAddressEditReq
 		localVarReturnValue  *AddressListing
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountApiService.AccountAddressEdit")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountAPIService.AccountAddressEdit")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -591,7 +591,7 @@ func (a *AccountApiService) AccountAddressEditExecute(r ApiAccountAddressEditReq
 
 type ApiAccountExistsRequest struct {
 	ctx context.Context
-	ApiService *AccountApiService
+	ApiService *AccountAPIService
 	xPublishableKey *string
 	identifier *AccountExistsIdentifierParameter
 }
@@ -620,7 +620,7 @@ Determine whether or not an identifier is associated with an existing Bolt accou
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiAccountExistsRequest
 */
-func (a *AccountApiService) AccountExists(ctx context.Context) ApiAccountExistsRequest {
+func (a *AccountAPIService) AccountExists(ctx context.Context) ApiAccountExistsRequest {
 	return ApiAccountExistsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -628,14 +628,14 @@ func (a *AccountApiService) AccountExists(ctx context.Context) ApiAccountExistsR
 }
 
 // Execute executes the request
-func (a *AccountApiService) AccountExistsExecute(r ApiAccountExistsRequest) (*http.Response, error) {
+func (a *AccountAPIService) AccountExistsExecute(r ApiAccountExistsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountApiService.AccountExists")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountAPIService.AccountExists")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -711,7 +711,7 @@ func (a *AccountApiService) AccountExistsExecute(r ApiAccountExistsRequest) (*ht
 
 type ApiAccountGetRequest struct {
 	ctx context.Context
-	ApiService *AccountApiService
+	ApiService *AccountAPIService
 	xPublishableKey *string
 }
 
@@ -733,7 +733,7 @@ Retrieve a shopper's account details, such as addresses and payment information
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiAccountGetRequest
 */
-func (a *AccountApiService) AccountGet(ctx context.Context) ApiAccountGetRequest {
+func (a *AccountAPIService) AccountGet(ctx context.Context) ApiAccountGetRequest {
 	return ApiAccountGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -742,7 +742,7 @@ func (a *AccountApiService) AccountGet(ctx context.Context) ApiAccountGetRequest
 
 // Execute executes the request
 //  @return Account
-func (a *AccountApiService) AccountGetExecute(r ApiAccountGetRequest) (*Account, *http.Response, error) {
+func (a *AccountAPIService) AccountGetExecute(r ApiAccountGetRequest) (*Account, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -750,7 +750,7 @@ func (a *AccountApiService) AccountGetExecute(r ApiAccountGetRequest) (*Account,
 		localVarReturnValue  *Account
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountApiService.AccountGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountAPIService.AccountGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -831,4 +831,133 @@ func (a *AccountApiService) AccountGetExecute(r ApiAccountGetRequest) (*Account,
 	}
 
 	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiAccountPaymentMethodDeleteRequest struct {
+	ctx context.Context
+	ApiService *AccountAPIService
+	xPublishableKey *string
+	id string
+}
+
+// The publicly viewable identifier used to identify a merchant division.
+func (r ApiAccountPaymentMethodDeleteRequest) XPublishableKey(xPublishableKey string) ApiAccountPaymentMethodDeleteRequest {
+	r.xPublishableKey = &xPublishableKey
+	return r
+}
+
+func (r ApiAccountPaymentMethodDeleteRequest) Execute() (*http.Response, error) {
+	return r.ApiService.AccountPaymentMethodDeleteExecute(r)
+}
+
+/*
+AccountPaymentMethodDelete Delete an existing payment method
+
+Delete an existing payment method. Deleting a payment method does not invalidate transactions or
+orders that are associated with it.
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id The ID of the payment method to delete
+ @return ApiAccountPaymentMethodDeleteRequest
+*/
+func (a *AccountAPIService) AccountPaymentMethodDelete(ctx context.Context, id string) ApiAccountPaymentMethodDeleteRequest {
+	return ApiAccountPaymentMethodDeleteRequest{
+		ApiService: a,
+		ctx: ctx,
+		id: id,
+	}
+}
+
+// Execute executes the request
+func (a *AccountAPIService) AccountPaymentMethodDeleteExecute(r ApiAccountPaymentMethodDeleteRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountAPIService.AccountPaymentMethodDelete")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/account/payment-methods/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.xPublishableKey == nil {
+		return nil, reportError("xPublishableKey is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "X-Publishable-Key", r.xPublishableKey, "")
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["api-key"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["X-API-Key"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
 }

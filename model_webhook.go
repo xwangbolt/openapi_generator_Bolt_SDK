@@ -171,8 +171,12 @@ func (o Webhook) MarshalJSON() ([]byte, error) {
 
 func (o Webhook) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	// skip: id is readOnly
-	// skip: created_at is readOnly
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	if !IsNil(o.CreatedAt) {
+		toSerialize["created_at"] = o.CreatedAt
+	}
 	toSerialize["event"] = o.Event
 	toSerialize["url"] = o.Url
 	return toSerialize, nil

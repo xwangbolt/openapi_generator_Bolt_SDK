@@ -5,10 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Tag** | **string** |  | 
-**Id** | Pointer to **string** |  | [optional] 
-**Type** | **string** | Credit card type | 
-**BillingAddressInput** | Pointer to [**AddressReference**](AddressReference.md) |  | [optional] 
-**BillingAddressId** | Pointer to **string** | The ID of credit card&#39;s billing address | [optional] 
+**Id** | Pointer to **string** |  | [optional] [readonly] 
+**BillingAddress** | [**AddressReference**](AddressReference.md) |  | 
+**BillingAddressId** | Pointer to **string** | The ID of credit card&#39;s billing address | [optional] [readonly] 
 **Network** | **string** | The credit card network. | 
 **Bin** | **string** | The Bank Identification Number for the credit card. This is typically the first 4-6 digits of the credit card number. | 
 **Last4** | **string** | The last 4 digits of the credit card number. | 
@@ -19,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewPaymentMethod
 
-`func NewPaymentMethod(tag string, type_ string, network string, bin string, last4 string, expiration string, token string, ) *PaymentMethod`
+`func NewPaymentMethod(tag string, billingAddress AddressReference, network string, bin string, last4 string, expiration string, token string, ) *PaymentMethod`
 
 NewPaymentMethod instantiates a new PaymentMethod object
 This constructor will assign default values to properties that have it defined,
@@ -79,50 +78,25 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
-### GetType
+### GetBillingAddress
 
-`func (o *PaymentMethod) GetType() string`
+`func (o *PaymentMethod) GetBillingAddress() AddressReference`
 
-GetType returns the Type field if non-nil, zero value otherwise.
+GetBillingAddress returns the BillingAddress field if non-nil, zero value otherwise.
 
-### GetTypeOk
+### GetBillingAddressOk
 
-`func (o *PaymentMethod) GetTypeOk() (*string, bool)`
+`func (o *PaymentMethod) GetBillingAddressOk() (*AddressReference, bool)`
 
-GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+GetBillingAddressOk returns a tuple with the BillingAddress field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetType
+### SetBillingAddress
 
-`func (o *PaymentMethod) SetType(v string)`
+`func (o *PaymentMethod) SetBillingAddress(v AddressReference)`
 
-SetType sets Type field to given value.
+SetBillingAddress sets BillingAddress field to given value.
 
-
-### GetBillingAddressInput
-
-`func (o *PaymentMethod) GetBillingAddressInput() AddressReference`
-
-GetBillingAddressInput returns the BillingAddressInput field if non-nil, zero value otherwise.
-
-### GetBillingAddressInputOk
-
-`func (o *PaymentMethod) GetBillingAddressInputOk() (*AddressReference, bool)`
-
-GetBillingAddressInputOk returns a tuple with the BillingAddressInput field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBillingAddressInput
-
-`func (o *PaymentMethod) SetBillingAddressInput(v AddressReference)`
-
-SetBillingAddressInput sets BillingAddressInput field to given value.
-
-### HasBillingAddressInput
-
-`func (o *PaymentMethod) HasBillingAddressInput() bool`
-
-HasBillingAddressInput returns a boolean if a field has been set.
 
 ### GetBillingAddressId
 

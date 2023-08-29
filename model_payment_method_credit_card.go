@@ -20,13 +20,6 @@ var _ MappedNullable = &PaymentMethodCreditCard{}
 
 // PaymentMethodCreditCard struct for PaymentMethodCreditCard
 type PaymentMethodCreditCard struct {
-	Tag string `json:".tag"`
-	Id *string `json:"id,omitempty"`
-	// Credit card type
-	Type string `json:"type"`
-	BillingAddressInput *AddressReference `json:"billing_address_input,omitempty"`
-	// The ID of credit card's billing address
-	BillingAddressId *string `json:"billing_address_id,omitempty"`
 	// The credit card network.
 	Network string `json:"network"`
 	// The Bank Identification Number for the credit card. This is typically the first 4-6 digits of the credit card number.
@@ -37,21 +30,26 @@ type PaymentMethodCreditCard struct {
 	Expiration string `json:"expiration"`
 	// The Bolt token associated to the credit card.
 	Token string `json:"token"`
+	Tag string `json:".tag"`
+	Id *string `json:"id,omitempty"`
+	BillingAddress AddressReference `json:"billing_address"`
+	// The ID of credit card's billing address
+	BillingAddressId *string `json:"billing_address_id,omitempty"`
 }
 
 // NewPaymentMethodCreditCard instantiates a new PaymentMethodCreditCard object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPaymentMethodCreditCard(tag string, type_ string, network string, bin string, last4 string, expiration string, token string) *PaymentMethodCreditCard {
+func NewPaymentMethodCreditCard(network string, bin string, last4 string, expiration string, token string, tag string, billingAddress AddressReference) *PaymentMethodCreditCard {
 	this := PaymentMethodCreditCard{}
-	this.Tag = tag
-	this.Type = type_
 	this.Network = network
 	this.Bin = bin
 	this.Last4 = last4
 	this.Expiration = expiration
 	this.Token = token
+	this.Tag = tag
+	this.BillingAddress = billingAddress
 	return &this
 }
 
@@ -61,150 +59,6 @@ func NewPaymentMethodCreditCard(tag string, type_ string, network string, bin st
 func NewPaymentMethodCreditCardWithDefaults() *PaymentMethodCreditCard {
 	this := PaymentMethodCreditCard{}
 	return &this
-}
-
-// GetTag returns the Tag field value
-func (o *PaymentMethodCreditCard) GetTag() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Tag
-}
-
-// GetTagOk returns a tuple with the Tag field value
-// and a boolean to check if the value has been set.
-func (o *PaymentMethodCreditCard) GetTagOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Tag, true
-}
-
-// SetTag sets field value
-func (o *PaymentMethodCreditCard) SetTag(v string) {
-	o.Tag = v
-}
-
-// GetId returns the Id field value if set, zero value otherwise.
-func (o *PaymentMethodCreditCard) GetId() string {
-	if o == nil || IsNil(o.Id) {
-		var ret string
-		return ret
-	}
-	return *o.Id
-}
-
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PaymentMethodCreditCard) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
-		return nil, false
-	}
-	return o.Id, true
-}
-
-// HasId returns a boolean if a field has been set.
-func (o *PaymentMethodCreditCard) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
-func (o *PaymentMethodCreditCard) SetId(v string) {
-	o.Id = &v
-}
-
-// GetType returns the Type field value
-func (o *PaymentMethodCreditCard) GetType() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Type
-}
-
-// GetTypeOk returns a tuple with the Type field value
-// and a boolean to check if the value has been set.
-func (o *PaymentMethodCreditCard) GetTypeOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Type, true
-}
-
-// SetType sets field value
-func (o *PaymentMethodCreditCard) SetType(v string) {
-	o.Type = v
-}
-
-// GetBillingAddressInput returns the BillingAddressInput field value if set, zero value otherwise.
-func (o *PaymentMethodCreditCard) GetBillingAddressInput() AddressReference {
-	if o == nil || IsNil(o.BillingAddressInput) {
-		var ret AddressReference
-		return ret
-	}
-	return *o.BillingAddressInput
-}
-
-// GetBillingAddressInputOk returns a tuple with the BillingAddressInput field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PaymentMethodCreditCard) GetBillingAddressInputOk() (*AddressReference, bool) {
-	if o == nil || IsNil(o.BillingAddressInput) {
-		return nil, false
-	}
-	return o.BillingAddressInput, true
-}
-
-// HasBillingAddressInput returns a boolean if a field has been set.
-func (o *PaymentMethodCreditCard) HasBillingAddressInput() bool {
-	if o != nil && !IsNil(o.BillingAddressInput) {
-		return true
-	}
-
-	return false
-}
-
-// SetBillingAddressInput gets a reference to the given AddressReference and assigns it to the BillingAddressInput field.
-func (o *PaymentMethodCreditCard) SetBillingAddressInput(v AddressReference) {
-	o.BillingAddressInput = &v
-}
-
-// GetBillingAddressId returns the BillingAddressId field value if set, zero value otherwise.
-func (o *PaymentMethodCreditCard) GetBillingAddressId() string {
-	if o == nil || IsNil(o.BillingAddressId) {
-		var ret string
-		return ret
-	}
-	return *o.BillingAddressId
-}
-
-// GetBillingAddressIdOk returns a tuple with the BillingAddressId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PaymentMethodCreditCard) GetBillingAddressIdOk() (*string, bool) {
-	if o == nil || IsNil(o.BillingAddressId) {
-		return nil, false
-	}
-	return o.BillingAddressId, true
-}
-
-// HasBillingAddressId returns a boolean if a field has been set.
-func (o *PaymentMethodCreditCard) HasBillingAddressId() bool {
-	if o != nil && !IsNil(o.BillingAddressId) {
-		return true
-	}
-
-	return false
-}
-
-// SetBillingAddressId gets a reference to the given string and assigns it to the BillingAddressId field.
-func (o *PaymentMethodCreditCard) SetBillingAddressId(v string) {
-	o.BillingAddressId = &v
 }
 
 // GetNetwork returns the Network field value
@@ -327,6 +181,118 @@ func (o *PaymentMethodCreditCard) SetToken(v string) {
 	o.Token = v
 }
 
+// GetTag returns the Tag field value
+func (o *PaymentMethodCreditCard) GetTag() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Tag
+}
+
+// GetTagOk returns a tuple with the Tag field value
+// and a boolean to check if the value has been set.
+func (o *PaymentMethodCreditCard) GetTagOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Tag, true
+}
+
+// SetTag sets field value
+func (o *PaymentMethodCreditCard) SetTag(v string) {
+	o.Tag = v
+}
+
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *PaymentMethodCreditCard) GetId() string {
+	if o == nil || IsNil(o.Id) {
+		var ret string
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PaymentMethodCreditCard) GetIdOk() (*string, bool) {
+	if o == nil || IsNil(o.Id) {
+		return nil, false
+	}
+	return o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *PaymentMethodCreditCard) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given string and assigns it to the Id field.
+func (o *PaymentMethodCreditCard) SetId(v string) {
+	o.Id = &v
+}
+
+// GetBillingAddress returns the BillingAddress field value
+func (o *PaymentMethodCreditCard) GetBillingAddress() AddressReference {
+	if o == nil {
+		var ret AddressReference
+		return ret
+	}
+
+	return o.BillingAddress
+}
+
+// GetBillingAddressOk returns a tuple with the BillingAddress field value
+// and a boolean to check if the value has been set.
+func (o *PaymentMethodCreditCard) GetBillingAddressOk() (*AddressReference, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BillingAddress, true
+}
+
+// SetBillingAddress sets field value
+func (o *PaymentMethodCreditCard) SetBillingAddress(v AddressReference) {
+	o.BillingAddress = v
+}
+
+// GetBillingAddressId returns the BillingAddressId field value if set, zero value otherwise.
+func (o *PaymentMethodCreditCard) GetBillingAddressId() string {
+	if o == nil || IsNil(o.BillingAddressId) {
+		var ret string
+		return ret
+	}
+	return *o.BillingAddressId
+}
+
+// GetBillingAddressIdOk returns a tuple with the BillingAddressId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PaymentMethodCreditCard) GetBillingAddressIdOk() (*string, bool) {
+	if o == nil || IsNil(o.BillingAddressId) {
+		return nil, false
+	}
+	return o.BillingAddressId, true
+}
+
+// HasBillingAddressId returns a boolean if a field has been set.
+func (o *PaymentMethodCreditCard) HasBillingAddressId() bool {
+	if o != nil && !IsNil(o.BillingAddressId) {
+		return true
+	}
+
+	return false
+}
+
+// SetBillingAddressId gets a reference to the given string and assigns it to the BillingAddressId field.
+func (o *PaymentMethodCreditCard) SetBillingAddressId(v string) {
+	o.BillingAddressId = &v
+}
+
 func (o PaymentMethodCreditCard) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -337,22 +303,19 @@ func (o PaymentMethodCreditCard) MarshalJSON() ([]byte, error) {
 
 func (o PaymentMethodCreditCard) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize[".tag"] = o.Tag
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
-	toSerialize["type"] = o.Type
-	if !IsNil(o.BillingAddressInput) {
-		toSerialize["billing_address_input"] = o.BillingAddressInput
-	}
-	if !IsNil(o.BillingAddressId) {
-		toSerialize["billing_address_id"] = o.BillingAddressId
-	}
 	toSerialize["network"] = o.Network
 	toSerialize["bin"] = o.Bin
 	toSerialize["last4"] = o.Last4
 	toSerialize["expiration"] = o.Expiration
 	toSerialize["token"] = o.Token
+	toSerialize[".tag"] = o.Tag
+	if !IsNil(o.Id) {
+		toSerialize["id"] = o.Id
+	}
+	toSerialize["billing_address"] = o.BillingAddress
+	if !IsNil(o.BillingAddressId) {
+		toSerialize["billing_address_id"] = o.BillingAddressId
+	}
 	return toSerialize, nil
 }
 
