@@ -1830,21 +1830,21 @@ components:
       - $ref: '#/components/schemas/address-error-invalid-region'
     accountExists_identifier_parameter:
       properties:
-        type:
+        identifier_type:
           description: The type of identifier
           enum:
           - email
           - email_sha256
           example: email
           type: string
-        value:
+        identifier_value:
           description: The value of the identifier. The value must be valid for the
             specified `identifier_type`
           example: alice@example.com
           type: string
       required:
-      - type
-      - value
+      - identifier_type
+      - identifier_value
       type: object
     merchantCallbacksUpdate_400_response:
       oneOf:

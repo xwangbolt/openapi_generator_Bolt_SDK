@@ -21,19 +21,19 @@ var _ MappedNullable = &AccountExistsIdentifierParameter{}
 // AccountExistsIdentifierParameter struct for AccountExistsIdentifierParameter
 type AccountExistsIdentifierParameter struct {
 	// The type of identifier
-	Type string `json:"type"`
+	IdentifierType string `json:"identifier_type"`
 	// The value of the identifier. The value must be valid for the specified `identifier_type`
-	Value string `json:"value"`
+	IdentifierValue string `json:"identifier_value"`
 }
 
 // NewAccountExistsIdentifierParameter instantiates a new AccountExistsIdentifierParameter object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAccountExistsIdentifierParameter(type_ string, value string) *AccountExistsIdentifierParameter {
+func NewAccountExistsIdentifierParameter(identifierType string, identifierValue string) *AccountExistsIdentifierParameter {
 	this := AccountExistsIdentifierParameter{}
-	this.Type = type_
-	this.Value = value
+	this.IdentifierType = identifierType
+	this.IdentifierValue = identifierValue
 	return &this
 }
 
@@ -45,52 +45,52 @@ func NewAccountExistsIdentifierParameterWithDefaults() *AccountExistsIdentifierP
 	return &this
 }
 
-// GetType returns the Type field value
-func (o *AccountExistsIdentifierParameter) GetType() string {
+// GetIdentifierType returns the IdentifierType field value
+func (o *AccountExistsIdentifierParameter) GetIdentifierType() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.Type
+	return o.IdentifierType
 }
 
-// GetTypeOk returns a tuple with the Type field value
+// GetIdentifierTypeOk returns a tuple with the IdentifierType field value
 // and a boolean to check if the value has been set.
-func (o *AccountExistsIdentifierParameter) GetTypeOk() (*string, bool) {
+func (o *AccountExistsIdentifierParameter) GetIdentifierTypeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Type, true
+	return &o.IdentifierType, true
 }
 
-// SetType sets field value
-func (o *AccountExistsIdentifierParameter) SetType(v string) {
-	o.Type = v
+// SetIdentifierType sets field value
+func (o *AccountExistsIdentifierParameter) SetIdentifierType(v string) {
+	o.IdentifierType = v
 }
 
-// GetValue returns the Value field value
-func (o *AccountExistsIdentifierParameter) GetValue() string {
+// GetIdentifierValue returns the IdentifierValue field value
+func (o *AccountExistsIdentifierParameter) GetIdentifierValue() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.Value
+	return o.IdentifierValue
 }
 
-// GetValueOk returns a tuple with the Value field value
+// GetIdentifierValueOk returns a tuple with the IdentifierValue field value
 // and a boolean to check if the value has been set.
-func (o *AccountExistsIdentifierParameter) GetValueOk() (*string, bool) {
+func (o *AccountExistsIdentifierParameter) GetIdentifierValueOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Value, true
+	return &o.IdentifierValue, true
 }
 
-// SetValue sets field value
-func (o *AccountExistsIdentifierParameter) SetValue(v string) {
-	o.Value = v
+// SetIdentifierValue sets field value
+func (o *AccountExistsIdentifierParameter) SetIdentifierValue(v string) {
+	o.IdentifierValue = v
 }
 
 func (o AccountExistsIdentifierParameter) MarshalJSON() ([]byte, error) {
@@ -103,8 +103,8 @@ func (o AccountExistsIdentifierParameter) MarshalJSON() ([]byte, error) {
 
 func (o AccountExistsIdentifierParameter) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["type"] = o.Type
-	toSerialize["value"] = o.Value
+	toSerialize["identifier_type"] = o.IdentifierType
+	toSerialize["identifier_value"] = o.IdentifierValue
 	return toSerialize, nil
 }
 
